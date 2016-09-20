@@ -62,5 +62,14 @@ namespace Plugin.SimpleLogger.Abstractions
         /// Deletes all log files. 
         /// </summary>
         void PurgeLog();
+
+        /// <summary>
+        /// Configures the logger
+        /// </summary>
+        /// <param name="logFileNameBase">The log file name base.</param>
+        /// <param name="maxLogFilesCount">The maximum log files count.</param>
+        /// <param name="maxLogFileSizeKb">The maximum log file size kb.</param>
+        /// <param name="level">The logging level</param>
+        void Configure(string logFileNameBase, int maxLogFilesCount = 3, int maxLogFileSizeKb = 100, LogLevel level = LogLevel.Warning);
     }
 }

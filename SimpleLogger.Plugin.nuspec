@@ -2,18 +2,17 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
 	<metadata minClientVersion="2.8.3">
 		<id>Plugin.SimpleLogger</id>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 		<title>SimpleLogger Plugin for Xamarin and Windows</title>
 		<authors>Jiri Matejka</authors>
 		<owners>Jiri Matejka</owners>
-    <licenseUrl>http://www.jirimatejka.com</licenseUrl>
-    <projectUrl>http://www.jirimatejka.com</projectUrl>      
-		<iconUrl>http://www.jirimatejka.com/xamarin-plugins/simplelogger.png</iconUrl>
+    <licenseUrl>https://github.com/jirimatejka/xamarin-logger/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/jirimatejka/xamarin-logger</projectUrl>      
+		<iconUrl>https://github.com/jirimatejka/xamarin-logger/blob/master/SimpleLogger/package-icon.png</iconUrl>
 
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>
-         This plugin provides a CrossSimpleLogger class that enables you to easily log any events occurring within your application. 
-         It supports Debug, Info, Warning and Error logging levels. You can get the log content using CrossSimpleLogger.GetAllLogsContent method and do whatever you want with this, eg. submit to a server for further analysis.
+         This plugin provides a CrossSimpleLogger class that enables you to easily log any events occurring within your Xamarin.Forms application. It supports Debug, Info, Warning and Error logging levels and you can configure the number of log files being kept and their maximum size. 
          Works on Android, iOS and UWP. WP80, WP81 and Windows Store apps projects have been added to the source codebase but have not implemented yet. 
 		</description>
 		<summary>To log events in your Xamarin or Xamarin.Forms application</summary>
