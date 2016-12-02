@@ -21,7 +21,7 @@ namespace Plugin.SimpleLogger
             try
             {
                 var fullPath = accomplishPath(filename);
-                File.AppendAllText(fullPath, message);
+                File.AppendAllText(fullPath, message + "\r\n");
                 return true;
             }
             catch (System.IO.IOException ex)

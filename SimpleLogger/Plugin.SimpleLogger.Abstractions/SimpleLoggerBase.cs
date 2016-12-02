@@ -8,7 +8,7 @@ namespace Plugin.SimpleLogger.Abstractions
 {
     public abstract class SimpleLoggerBase : ISimpleLogger
     {
-        private const string DEFAULT_LOG_NAME = "app_events";
+        private const string DEFAULT_LOG_NAME = "appevents";
 
         #region Constructors        
         /// <summary>
@@ -96,7 +96,7 @@ namespace Plugin.SimpleLogger.Abstractions
             if (exc == null)
                 rec = String.Format("{0} - {1}", DateTime.UtcNow, message);
             else
-                rec = String.Format("{0} - {1}. EXCEPTION: {2}. STACK TRACE: {3}.", DateTime.UtcNow, message, exc.Message, exc.StackTrace.ToString());
+                rec = String.Format("{0} - {1}. EXCEPTION: {2}. STACK TRACE: {3}.", DateTime.UtcNow, message, exc.Message, exc.StackTrace != null ? exc.StackTrace.ToString() : "");
             AppendToFile(currentLogFileName, rec);
 
             // check log rollover
@@ -121,7 +121,7 @@ namespace Plugin.SimpleLogger.Abstractions
             var currentFileSize = GetFileSizeKb(currentLogFileName);
             if (currentFileSize > maxLogFileSizeKb)
             {
-                if (logFiles.Count == maxLogFilesCount)
+                if (logFiles.Count >= maxLogFilesCount)
                 {
                     // delete oldest file
                     if (DeleteFile(logFiles[maxLogFilesCount - 1]))
@@ -248,10 +248,16 @@ namespace Plugin.SimpleLogger.Abstractions
         public string GetAllLogContent()
         {
             StringBuilder sb = new StringBuilder();
+            for (var i = logFiles.Count - 1; i >= 0; i--)
+            {
+                sb.AppendLine(logFiles[i] + "\r\n");
+                sb.AppendLine(LoadFromFile(logFiles[i]));
+            }
+            /*
             foreach (var f in logFiles)
             {
                 sb.AppendLine(LoadFromFile(f));
-            }
+            }*/
             return sb.ToString();
         }
 
@@ -284,11 +290,16 @@ namespace Plugin.SimpleLogger.Abstractions
                DeleteFile(f);
             }
             DeleteFile(logStatusFileName);
-
         }
 
+        public void SetLogLevel(LogLevel level)
+        {
+            this.LogLevel = level;
+        }
+
+
         /// <summary>
-        /// Configures the Logger
+        /// Configures the Logger. Note changing logFileNameBase will remove all existing logs.
         /// </summary>        
         /// <param name="logFileNameBase">The log file name without extension. SimpleLogger will add a suffix to ensure uniqueness of the filename.</param>
         /// <param name="maxLogFilesCount">The maximum number of log files. Oldest files will be automatically removed once the number is reached.</param>
@@ -299,8 +310,8 @@ namespace Plugin.SimpleLogger.Abstractions
         /// or
         /// logFileNameBase
         /// </exception>
-        public void Configure(string logFileNameBase, int maxLogFilesCount = 3, int maxLogFileSizeKb = 100, LogLevel level = LogLevel.Warning)
-        {
+        public void Configure(string logFileNameBase, int maxLogFilesCount = 5, int maxLogFileSizeKb = 100, LogLevel level = LogLevel.Debug)
+        {                       
             if (maxLogFilesCount < 1)
                 throw new Exception("maxLogFilesCount must be greater than zero.");
 
@@ -313,6 +324,17 @@ namespace Plugin.SimpleLogger.Abstractions
             }
             else if (logFileNameBase.Contains(";"))
                 throw new Exception("Semicolon is not allowed in logfile name.");
+
+            if (this.logFileNameBase != logFileNameBase && !String.IsNullOrEmpty(this.logFileNameBase))
+            {
+                // reset logging
+                foreach (var f in logFiles)
+                {
+                    DeleteFile(f);
+                    DeleteFile(logStatusFileName);
+                }
+                logFiles.Clear();
+            }
 
             this.logFileNameBase = logFileNameBase;
             this.maxLogFilesCount = maxLogFilesCount;

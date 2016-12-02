@@ -70,6 +70,13 @@ namespace Plugin.SimpleLogger.Abstractions
         /// <param name="maxLogFilesCount">The maximum log files count.</param>
         /// <param name="maxLogFileSizeKb">The maximum log file size kb.</param>
         /// <param name="level">The logging level</param>
-        void Configure(string logFileNameBase, int maxLogFilesCount = 3, int maxLogFileSizeKb = 100, LogLevel level = LogLevel.Warning);
+        void Configure(string logFileNameBase, int maxLogFilesCount = 5, int maxLogFileSizeKb = 100, LogLevel level = LogLevel.Warning);
+
+        /// <summary>
+        /// Sets the log level.
+        /// </summary>
+        /// <param name="level">The level.</param>
+        void SetLogLevel(LogLevel level);
+
     }
 }
