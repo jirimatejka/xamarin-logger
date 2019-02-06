@@ -12,7 +12,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -58,7 +58,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
-      <DocumentationFile>bin\Release\Plugin.SimpleLogger.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Plugin.SimpleLogger.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <PlatformTarget>ARM</PlatformTarget>
@@ -118,8 +118,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Plugin.SimpleLogger.Abstractions\Plugin.SimpleLogger.Abstractions.csproj">
-      <Project>{6edb0588-ffc5-4ef5-8a99-9e241d0f878d}</Project>
+      <Project>{62ff986f-e725-4e34-b8da-02d3737537b3}</Project>
       <Name>Plugin.SimpleLogger.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plugin.SimpleLogger\Plugin.SimpleLogger.csproj">
+      <Project>{d7cfae5e-6611-4274-b0de-2ef51ee60606}</Project>
+      <Name>Plugin.SimpleLogger</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

@@ -14,9 +14,8 @@
     <FileAlignment>512</FileAlignment>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <DevInstrumentationEnabled>True</DevInstrumentationEnabled>
-    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,8 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Plugin.SimpleLogger.Abstractions\Plugin.SimpleLogger.Abstractions.csproj">
-      <Project>{6edb0588-ffc5-4ef5-8a99-9e241d0f878d}</Project>
+      <Project>{62ff986f-e725-4e34-b8da-02d3737537b3}</Project>
       <Name>Plugin.SimpleLogger.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plugin.SimpleLogger\Plugin.SimpleLogger.csproj">
+      <Project>{d7cfae5e-6611-4274-b0de-2ef51ee60606}</Project>
+      <Name>Plugin.SimpleLogger</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
