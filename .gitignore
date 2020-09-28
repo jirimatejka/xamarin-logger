@@ -15,3 +15,6 @@
 /SimpleLogger/Plugin.SimpleLogger.iOS/obj/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttributes.cs
 /SimpleLogger/Plugin.SimpleLogger.iOS/obj/Release/Xamarin.iOS,Version=v1.0.AssemblyAttributes.cs
 /SimpleLogger/Plugin.SimpleLogger.Abstractions/Properties/AssemblyInfo.cs
+/packages/System.Runtime.4.0.20
+/SimpleLogger/Plugin.SimpleLogger.iOS/bin/iPhone/Debug
+/SimpleLogger/Plugin.SimpleLogger.iOS/obj/Debug
