@@ -3,3 +3,15 @@
 ################################################################################
 
 /SimpleLogger/Plugin.SimpleLogger/bin
+/SimpleLogger/Plugin.SimpleLogger/obj
+/SimpleLogger/Plugin.SimpleLogger.Abstractions/bin
+/SimpleLogger/Plugin.SimpleLogger.Abstractions/obj
+/SimpleLogger/Plugin.SimpleLogger.Android/bin
+/SimpleLogger/Plugin.SimpleLogger.Android/obj
+/.vs
+/SimpleLogger/Plugin.SimpleLogger/Plugin.SimpleLogger.csproj.GhostDoc.xml
+/SimpleLogger/Plugin.SimpleLogger.Android/Resources/AboutResources.txt
+/SimpleLogger/Plugin.SimpleLogger.iOS/obj/Debug/Plugin.SimpleLogger.iOS.csprojAssemblyReference.cache
+/SimpleLogger/Plugin.SimpleLogger.iOS/obj/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttributes.cs
+/SimpleLogger/Plugin.SimpleLogger.iOS/obj/Release/Xamarin.iOS,Version=v1.0.AssemblyAttributes.cs
+/SimpleLogger/Plugin.SimpleLogger.Abstractions/Properties/AssemblyInfo.cs

@@ -158,6 +158,7 @@ namespace Plugin.SimpleLogger.Abstractions
             var status = LoadFromFile(logStatusFileName);
             if (!String.IsNullOrEmpty(status))
             {
+                logFiles.Clear();
                 string[] tokens = status.Split(';');
                 foreach (var token in tokens)
                 {
@@ -290,6 +291,8 @@ namespace Plugin.SimpleLogger.Abstractions
                DeleteFile(f);
             }
             DeleteFile(logStatusFileName);
+            logFiles.Clear();
+            SetupLogFiles();
         }
 
         public void SetLogLevel(LogLevel level)
