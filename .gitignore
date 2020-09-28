@@ -21,3 +21,6 @@
 /SimpleLogger/Plugin.SimpleLogger.UWP/bin/Debug
 /SimpleLogger/Plugin.SimpleLogger.UWP/obj
 /SimpleLogger/Plugin.SimpleLogger.UWP/Backup
+/SimpleLogger/Plugin.SimpleLogger.iOS/bin/iPhone/Release
+/SimpleLogger/Plugin.SimpleLogger.iOS/obj/Release
+/SimpleLogger/Plugin.SimpleLogger.UWP/bin/Release
